@@ -13,10 +13,10 @@ const refs = {
 };
 
 refs.menu.insertAdjacentHTML('beforeend', card(menu));
-refs.themeSwitchToggle.addEventListener('change', swichTheme)
+refs.themeSwitchToggle.addEventListener('change', switchTheme)
 
 document.body.classList.add('light-theme');
-function swichTheme() {
+function switchTheme() {
     document.body.classList.toggle('light-theme');
     document.body.classList.toggle('dark-theme');
     localStorage.setItem('theme', document.body.className);

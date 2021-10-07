@@ -29,6 +29,7 @@ function switchTheme() {
 
 if (localStorage.getItem('theme')) {
     document.body.classList.remove(Theme.LIGHT);
+    document.body.classList.remove(Theme.DARK);
     document.body.classList.add(localStorage.getItem('theme'));
 };
 

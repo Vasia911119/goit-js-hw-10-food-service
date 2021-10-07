@@ -13,17 +13,23 @@ const refs = {
 };
 
 refs.menu.insertAdjacentHTML('beforeend', card(menu));
-refs.themeSwitchToggle.addEventListener('change', switchTheme)
+refs.themeSwitchToggle.addEventListener('change', switchTheme);
 
-document.body.classList.add('light-theme');
 function switchTheme() {
-    document.body.classList.toggle('light-theme');
-    document.body.classList.toggle('dark-theme');
+    if (document.body.className.includes(Theme.DARK)) {
+        document.body.classList.remove(Theme.DARK);
+        document.body.classList.add(Theme.LIGHT);
+    } else {
+        document.body.classList.remove(Theme.LIGHT);
+        document.body.classList.add(Theme.DARK);
+    };
     localStorage.setItem('theme', document.body.className);
 };
 
-if (localStorage.getItem('theme'))
-    document.body.classList.add(localStorage.getItem('theme'));
+if (localStorage.getItem('theme')) {
+    document.body.classList.add(localStorage.getItem('theme'))
+};
 
-if (localStorage.getItem('theme') === Theme.DARK)
-    refs.themeSwitchToggle.setAttribute('checked', true);
+if (localStorage.getItem('theme') === Theme.DARK) {
+    refs.themeSwitchToggle.setAttribute('checked', true)
+};

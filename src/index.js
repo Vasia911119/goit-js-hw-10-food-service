@@ -15,6 +15,7 @@ const refs = {
 refs.menu.insertAdjacentHTML('beforeend', card(menu));
 refs.themeSwitchToggle.addEventListener('change', switchTheme);
 
+document.body.classList.add(Theme.LIGHT);
 function switchTheme() {
     if (document.body.className.includes(Theme.DARK)) {
         document.body.classList.remove(Theme.DARK);
@@ -27,7 +28,8 @@ function switchTheme() {
 };
 
 if (localStorage.getItem('theme')) {
-    document.body.classList.add(localStorage.getItem('theme'))
+    document.body.classList.remove(Theme.LIGHT);
+    document.body.classList.add(localStorage.getItem('theme'));
 };
 
 if (localStorage.getItem('theme') === Theme.DARK) {
